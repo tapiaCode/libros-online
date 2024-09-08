@@ -3,13 +3,13 @@ let books;
 async function renderBooks(filter) {
   const booksWrapper = document.querySelector(".books");
 
-  booksWrapper.classList += ' books__loading'
+  booksWrapper.classList += " books__loading";
 
   if (!books) {
     books = await getBooks();
   }
 
-  booksWrapper.classList.remove('books__loading')
+  booksWrapper.classList.remove("books__loading");
 
   if (filter === "LOW_TO_HIGH") {
     books.sort(
@@ -113,7 +113,7 @@ function getBooks() {
           originalPrice: 49.95,
           salePrice: 14.95,
           rating: 4.5,
-          root: "pdf/principito.pdf"
+          root: "pdf/principito.pdf",
         },
         {
           id: 2,
@@ -122,7 +122,7 @@ function getBooks() {
           originalPrice: 39,
           salePrice: null,
           rating: 5,
-          root: "pdf/principito.pdf"
+          root: "pdf/principito.pdf",
         },
         {
           id: 3,
@@ -131,7 +131,7 @@ function getBooks() {
           originalPrice: 29,
           salePrice: 12,
           rating: 5,
-          root: "pdf/principito.pdf"
+          root: "pdf/principito.pdf",
         },
         {
           id: 4,
@@ -140,7 +140,7 @@ function getBooks() {
           originalPrice: 44,
           salePrice: 19,
           rating: 4.5,
-          root: "pdf/principito.pdf"
+          root: "pdf/principito.pdf",
         },
         {
           id: 5,
@@ -149,6 +149,7 @@ function getBooks() {
           originalPrice: 32,
           salePrice: 17,
           rating: 4,
+          root: "pdf/principito.pdf",
         },
         {
           id: 6,
@@ -157,6 +158,7 @@ function getBooks() {
           originalPrice: 70,
           salePrice: 12.5,
           rating: 5,
+          root: "pdf/principito.pdf",
         },
         {
           id: 7,
@@ -165,6 +167,7 @@ function getBooks() {
           originalPrice: 11,
           salePrice: 10,
           rating: 4,
+          root: "pdf/principito.pdf",
         },
         {
           id: 8,
@@ -173,6 +176,7 @@ function getBooks() {
           originalPrice: 38,
           salePrice: 17.95,
           rating: 4.5,
+          root: "pdf/principito.pdf",
         },
         {
           id: 9,
@@ -181,6 +185,7 @@ function getBooks() {
           originalPrice: 35,
           salePrice: null,
           rating: 2,
+          root: "pdf/principito.pdf",
         },
         {
           id: 10,
@@ -189,6 +194,7 @@ function getBooks() {
           originalPrice: 40,
           salePrice: null,
           rating: 4,
+          root: "pdf/principito.pdf"
         },
         {
           id: 11,
@@ -197,9 +203,9 @@ function getBooks() {
           originalPrice: 30,
           salePrice: null,
           rating: 4.5,
+          root: "pdf/principito.pdf"
         },
       ]);
     }, 1000);
   });
 }
-
