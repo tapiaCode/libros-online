@@ -7,6 +7,7 @@ function closeMenu() {
 }
 
 function abrirModal(pdfUrl) {
+  console.log(pdfUrl);
   var modal = document.getElementById("modal");
   var pdfViewer = document.getElementById("pdf-viewer");
 

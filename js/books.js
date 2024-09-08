@@ -27,7 +27,7 @@ async function renderBooks(filter) {
 
   const booksHtml = books
     .map((book) => {
-      return `<div class="book">
+      return `<div class="book" onclick="abrirModal('${book.root}')">
     <figure class="book__img--wrapper">
       <img class="book__img" src="${book.url}" alt="">
     </figure>
@@ -36,9 +36,6 @@ async function renderBooks(filter) {
     </div>
     <div class="book__ratings">
       ${ratingsHTML(book.rating)}
-    </div>
-    <div class="book__price">
-      ${priceHTML(book.originalPrice, book.salePrice)}
     </div>
   </div>`;
     })
@@ -75,6 +72,35 @@ setTimeout(() => {
   renderBooks();
 });
 
+function abrirModal(pdfUrl) {
+  console.log(pdfUrl);
+  var modal = document.getElementById("modal");
+  var pdfViewer = document.getElementById("pdf-viewer");
+
+  pdfViewer.src = pdfUrl;
+  modal.style.display = "block";
+
+  console.log("Abriendo modal con PDF:", pdfUrl);
+}
+
+function cerrarModal() {
+  var modal = document.getElementById("modal");
+  var pdfViewer = document.getElementById("pdf-viewer");
+
+  modal.style.display = "none";
+  pdfViewer.src = "";
+
+  console.log("Cerrando modal");
+}
+
+// Cerrar el modal si se hace clic fuera de él
+window.onclick = function (event) {
+  var modal = document.getElementById("modal");
+  if (event.target == modal) {
+    cerrarModal();
+  }
+};
+
 // FAKE DATA
 function getBooks() {
   return new Promise((resolve) => {
@@ -87,6 +113,7 @@ function getBooks() {
           originalPrice: 49.95,
           salePrice: 14.95,
           rating: 4.5,
+          root: "pdf/principito.pdf"
         },
         {
           id: 2,
@@ -95,6 +122,7 @@ function getBooks() {
           originalPrice: 39,
           salePrice: null,
           rating: 5,
+          root: "pdf/principito.pdf"
         },
         {
           id: 3,
@@ -103,6 +131,7 @@ function getBooks() {
           originalPrice: 29,
           salePrice: 12,
           rating: 5,
+          root: "pdf/principito.pdf"
         },
         {
           id: 4,
@@ -111,6 +140,7 @@ function getBooks() {
           originalPrice: 44,
           salePrice: 19,
           rating: 4.5,
+          root: "pdf/principito.pdf"
         },
         {
           id: 5,
